@@ -7,9 +7,9 @@
   <p align="center">
     每一份人情都值得礼记
     <br />
-    <a href="https://github.com/Chadwuo/li-ji-weapp/issues/new?template=bug_report.md">报告Bug</a>
+    <a href="https://github.com/wll8/gift-book-fe/issues/new?template=bug_report.md">报告Bug</a>
     ·
-    <a href="https://github.com/Chadwuo/li-ji-weapp/issues/new?template=feature_request.md">提出新特性</a>
+    <a href="https://github.com/wll8/gift-book-fe/issues/new?template=feature_request.md">提出新特性</a>
   </p>
 </p>
 
@@ -20,7 +20,7 @@
 ---
 
 ### 在线体验
- <img src="https://gitee.com/Chadwuo/li-ji-weapp/raw/main/doc/code.png" alt="Logo" width="240" height="240">
+  暂未发布
  
 ### 效果图
 > 画界面太难了，求个ui帮设计一下
@@ -39,8 +39,8 @@
 
 感谢所有已经为 礼记 做出贡献的人！
 
-<a href="https://github.com/Chadwuo/li-ji-weapp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Chadwuo/li-ji-weapp" />
+<a href="https://github.com/wll8/gift-book-fe/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wll8/gift-book-fe" />
 </a>
 
 ### 鸣谢
@@ -51,15 +51,15 @@
 - [dayjs](https://github.com/iamkun/dayjs)：Moment.js 的 2kB 轻量化方案，拥有同样强大的 API
 - [wx_calendar](https://github.com/treadpit/wx_calendar)：小历同学
 - [relationship](https://github.com/mumuy/relationship)：中国亲戚关系计算器
-- [阿里云 Serverless](https://serverless.aliyun.com)：阿里云 Serverless
 - [今日诗词 API](https://www.jinrishici.com)：![今日诗词](https://v2.jinrishici.com/one.svg)
+- [li-ji-weapp](https://github.com/Chadwuo/li-ji-weapp)：礼记，本程序 v0.1.x 版本基其开发
 
 ## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=Chadwuo/li-ji-weapp&type=Date)](https://star-history.com/#Chadwuo/li-ji-weapp&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=wll8/gift-book-fe&type=Date)](https://star-history.com/#wll8/gift-book-fe&Date)
 
 
 ### 版权说明
 
-礼记 使用 GPL-3.0 开源许可协议，在此之前请您务必了解该协议的许可说明以及遵守该协议的法律条件，详情请参阅 [LICENSE](https://github.com/chadwuo/li-ji-weapp/blob/master/LICENSE)。
+礼记 使用 GPL-3.0 开源许可协议，在此之前请您务必了解该协议的许可说明以及遵守该协议的法律条件，详情请参阅 [LICENSE](https://github.com/wll8/gift-book-fe/blob/master/LICENSE)。
 
 Copyright © Chadwuo Design. All Rights Reserved
