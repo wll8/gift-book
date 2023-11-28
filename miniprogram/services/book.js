@@ -6,7 +6,6 @@
 exports.getBookPage = async (parameter) => {
   parameter.limit = parameter.limit || 20;
   parameter.page = parameter.page || 1;
-  parameter.userId = wx.$userId
   return wx.$api.get(`/books`, parameter)
 };
 
@@ -17,7 +16,6 @@ exports.getBookPage = async (parameter) => {
  */
 exports.addBook = async (parameter) => {
   return wx.$api.post(`/books`, {
-    userId: wx.$userId,
     date: parameter.date,
     title: parameter.title,
     remarks: parameter.remarks,

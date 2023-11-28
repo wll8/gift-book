@@ -1,6 +1,5 @@
 // pages/start/index.js
 const app = getApp();
-import { getUserInfo } from "@/services/user";
 
 Page({
   /**
@@ -21,38 +20,18 @@ Page({
    */
   onReady() {},
   /**
-   * 初始化用户数据
-   */
-  async initUserInfo() {
-    const [err, res] = await getUserInfo().catch(() => {
-      this.setData({
-        netError: true,
-      });
-    })
-    app.userInfo = res;
-    wx.$app.userInfo = res;
-    wx.setStorageSync(`userInfo`, res)
-  },
-  /**
    * 生命周期函数--监听页面显示
    */
   async onShow() {
-    if (!app.userInfo) {
-      await this.initUserInfo();
-    }
-
-    setTimeout(() => {
-      if (!this.data.netError) {
-        wx.switchTab({
-          url: "/pages/index/index",
-        });
-      }
-    }, 1500);
+    await wx.$awaitLogin()
+    wx.switchTab({
+      url: "/pages/index/index",
+    });
   },
   onRetry() {
     this.setData({
-        netError: true,
-      });
+      netError: true,
+    });
     // 小程序重启
     wx.reLaunch({
       url: "/pages/start/index",

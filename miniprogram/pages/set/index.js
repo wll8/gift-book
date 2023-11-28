@@ -14,7 +14,7 @@ Page({
     const [err, res] = await toggleADSet()
     if (!err) {
       wx.showToast({
-        title: app.userInfo.skipAD ? '没关系，下次一定' : '页面广告已开启，礼记因你更美好！',
+        title: wx.$userInfo.skipAD ? '没关系，下次一定' : '页面广告已开启，礼记因你更美好！',
         icon: 'none',
         duration: 3000
       })
@@ -23,9 +23,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  async onLoad(options) {
+    await wx.$awaitLogin()
     this.setData({
-      skipAD: app.userInfo.skipAD
+      skipAD: wx.$userInfo.skipAD
     })
   },
 

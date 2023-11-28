@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skipAD: app.userInfo.skipAD,
+    skipAD: true,
     scrollTop: 0,
     pageNo: 0,
     giftList: [],
@@ -67,10 +67,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  async onShow () {
+    await wx.$awaitLogin()
     this.loadData(1);
     this.setData({
-      skipAD: app.userInfo.skipAD
+      skipAD: wx.$userInfo.skipAD
     })
   },
 

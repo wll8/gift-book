@@ -4,7 +4,7 @@ const bookService = require("@/services/book");
 const app = getApp();
 Page({
   data: {
-    skipAD: app.userInfo.skipAD,
+    skipAD: true,
     giftList: [],
     book: {},
     pageNo: 0,
@@ -48,7 +48,7 @@ Page({
       pageNo: page,
     });
     this.setData({
-      skipAD: app.userInfo.skipAD
+      skipAD: wx.$userInfo.skipAD
     })
   },
   /**
@@ -57,7 +57,10 @@ Page({
   async onLoad(options) {
     this.setData({
       'book.id': options.id,
-      skipAD: app.userInfo.skipAD,
+    })
+    await wx.$awaitLogin()
+    this.setData({
+      skipAD: wx.$userInfo.skipAD,
     })
   },
   /**

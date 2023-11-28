@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skipAD: app.userInfo.skipAD,
+    skipAD: true,
     friend: {
       id: ``,
       name: "",
@@ -42,7 +42,10 @@ Page({
   async onLoad(options) {
     this.setData({
       'friend.id': options.id,
-      skipAD: app.userInfo.skipAD,
+    })
+    await wx.$awaitLogin()
+    this.setData({
+      skipAD: wx.$userInfo.skipAD,
     })
   },
 

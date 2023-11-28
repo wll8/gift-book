@@ -6,8 +6,8 @@ const app = getApp();
  *
  * @author chadwuo
  */
-exports.getUserInfo = async (parameter) => {
-  return await wx.$api.get(`/users/${wx.$userId}`)
+exports.getUserInfo = async (id) => {
+  return await wx.$api.get(`/users/${id}`)
 };
 
 /**

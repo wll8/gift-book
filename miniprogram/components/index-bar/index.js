@@ -21,7 +21,6 @@ Component({
     async loadData(parameter = {}) {
       parameter.name_like = parameter.searchValue || ``
       delete parameter.searchValue
-      parameter.userId = wx.$userId
       const [err, res] = await friendService.getFriendList(parameter);
       if (!err) {
         const list = wx.$utils.groupByList(res)

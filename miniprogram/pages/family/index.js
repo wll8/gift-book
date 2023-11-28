@@ -1,6 +1,5 @@
 // pages/family/index.js
 const familyService = require("@/services/family");
-const { getUserInfo } = require("@/services/user");
 
 const app = getApp();
 Page({
@@ -29,7 +28,7 @@ Page({
   // 创建家庭
   async onCreate() {
     const [, res] = await familyService.addFamily({
-      name: `${app.userInfo.nickName}的家庭`,
+      name: `${wx.$userInfo.nickName}的家庭`,
     });
     if (res.success) {
       this.getFamilyInfo();
@@ -140,11 +139,6 @@ Page({
   async onLoad(options) {
     // 有邀请信息
     if (options && options.familyId) {
-      // 获取用户信息
-      const [, res] = await getUserInfo();
-      app.userInfo = res;
-      wx.$app.userInfo = res;
-
       // 获取用户的家庭信息
       const [, isExist] = await familyService.isExistFamily();      // 不存在家庭数据
       if (!isExist) {
@@ -200,7 +194,7 @@ Page({
   onShareAppMessage() {
     return {
       title: "和我一起记录家里的人情往来",
-      path: `pages/family/index?familyId=${this.data._id}&word=${app.userInfo.nickName}邀请你加入家庭共享记账`,
+      path: `pages/family/index?familyId=${this.data._id}&word=${wx.$userInfo.nickName}邀请你加入家庭共享记账`,
       imageUrl: "/static/img/share2.png",
     };
   },

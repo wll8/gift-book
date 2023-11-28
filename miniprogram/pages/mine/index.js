@@ -66,15 +66,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad (options) {
+    await wx.$awaitLogin()
     jinrishici.load((result) => {
       this.setData({
         jinrishici: result.data.content,
       });
     });
     this.setData({
-      avatarUrl: app.userInfo.avatarUrl,
-      nickName: app.userInfo.nickName,
+      avatarUrl: wx.$userInfo.avatarUrl,
+      nickName: wx.$userInfo.nickName,
     });
   },
   // 选择头像
@@ -125,7 +126,7 @@ Page({
     const nickName = this.data.nickName_edit;
 
     const [err, res] = await userService.updateUserInfo({
-      id: app.userInfo.id,
+      id: wx.$userInfo.id,
       nickName: nickName,
       avatarUrl: avatarUrl,
     });
@@ -142,8 +143,8 @@ Page({
           popupVisible: false,
           confirmLoading: false,
         });
-        app.userInfo.nickName = nickName;
-        app.userInfo.avatarUrl = avatarUrl;
+        wx.$userInfo.nickName = nickName;
+        wx.$userInfo.avatarUrl = avatarUrl;
       } else {
         wx.showToast({
           title: res.message,

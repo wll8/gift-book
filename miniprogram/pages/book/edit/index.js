@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skipAD: app.userInfo.skipAD,
+    skipAD: true,
     book: {
       id: "",
       date: {},
@@ -142,7 +142,10 @@ Page({
   async onLoad(options) {
     this.setData({
       'book.id': options.id,
-      skipAD: app.userInfo.skipAD,
+    })
+    await wx.$awaitLogin()
+    this.setData({
+      skipAD: wx.$userInfo.skipAD,
     })
   },
   /**
