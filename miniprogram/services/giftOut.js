@@ -1,4 +1,3 @@
-import pinyin from 'wl-pinyin';
 const app = getApp();
 
 /**
