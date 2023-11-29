@@ -23,7 +23,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   async onShow() {
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     wx.switchTab({
       url: "/pages/index/index",
     });

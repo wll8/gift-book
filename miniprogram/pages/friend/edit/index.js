@@ -43,7 +43,7 @@ Page({
     this.setData({
       'friend.id': options.id,
     })
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     this.setData({
       skipAD: wx.$userInfo.skipAD,
     })

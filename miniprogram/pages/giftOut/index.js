@@ -68,7 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   async onShow () {
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     this.loadData(1);
     this.setData({
       skipAD: wx.$userInfo.skipAD

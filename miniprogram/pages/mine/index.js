@@ -67,7 +67,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad (options) {
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     jinrishici.load((result) => {
       this.setData({
         jinrishici: result.data.content,

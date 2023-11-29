@@ -143,7 +143,7 @@ Page({
     this.setData({
       'book.id': options.id,
     })
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     this.setData({
       skipAD: wx.$userInfo.skipAD,
     })

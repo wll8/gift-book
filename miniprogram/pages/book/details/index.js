@@ -6,7 +6,11 @@ Page({
   data: {
     skipAD: true,
     giftList: [],
-    book: {},
+    book: {
+      title: `-`,
+      giftCount: 0,
+      giftTotal: 0
+    },
     pageNo: 0,
   },
   async onSearch(e) {
@@ -58,7 +62,7 @@ Page({
     this.setData({
       'book.id': options.id,
     })
-    await wx.$awaitLogin()
+    await wx.$api.ok()
     this.setData({
       skipAD: wx.$userInfo.skipAD,
     })
