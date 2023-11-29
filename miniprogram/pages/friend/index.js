@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skipAD: true,
     scrollTop: 0,
   },
   // 监听用户滑动页面事件。
@@ -53,9 +52,6 @@ Page({
   async onShow() {
     await wx.$api.ok()
     this.loadData();
-    this.setData({
-      skipAD: wx.$userInfo.skipAD
-    })
   },
 
   /**

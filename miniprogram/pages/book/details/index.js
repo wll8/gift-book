@@ -1,10 +1,8 @@
 // pages/book/details/index.js
 const giftReceiveService = require('@/services/giftReceive');
 const bookService = require("@/services/book");
-const app = getApp();
 Page({
   data: {
-    skipAD: true,
     giftList: [],
     book: {
       title: `-`,
@@ -51,9 +49,6 @@ Page({
       giftList: page === 1 ? res.results : [...this.data.giftList, ...res.results],
       pageNo: page,
     });
-    this.setData({
-      skipAD: wx.$userInfo.skipAD
-    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -61,10 +56,6 @@ Page({
   async onLoad(options) {
     this.setData({
       'book.id': options.id,
-    })
-    await wx.$api.ok()
-    this.setData({
-      skipAD: wx.$userInfo.skipAD,
     })
   },
   /**

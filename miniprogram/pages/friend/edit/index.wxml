@@ -18,11 +18,7 @@
 				</ui-input-box>
 			</ui-form-group>
 		</ui-form>
-		<!-- <text class="text-xs text-grey">Tips:。</text> -->
-		<view class="mt-6" wx:if="{{!skipAD}}">
-			<ad unit-id="adunit-64aefbe92c2dc7bf"></ad>
-			<text class="text-xs text-grey cicon-help mb-2">广告可以在设置中关闭</text>
-		</view>
+		<text class="text-xs text-grey">Tips: 在礼薄中可以快捷引用姓名和备注信息。</text>
 	</view>
 	<ui-fixed bottom val="{{24}}">
 		<van-row gutter="24" custom-class="mx-2">

@@ -1,12 +1,10 @@
 // pages/giftOut/index.js
 const giftOutService = require('@/services/giftOut');
-const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    skipAD: true,
     scrollTop: 0,
     pageNo: 0,
     giftList: [],
@@ -70,9 +68,6 @@ Page({
   async onShow () {
     await wx.$api.ok()
     this.loadData(1);
-    this.setData({
-      skipAD: wx.$userInfo.skipAD
-    })
   },
 
   /**

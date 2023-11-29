@@ -1,34 +1,16 @@
-const app = getApp();
-const {
-  toggleADSet
-} = require('@/services/user');
 // pages/set/index.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    skipAD: ''
   },
   async tapSetAdChange() {
-    const [err, res] = await toggleADSet()
-    if (!err) {
-      wx.showToast({
-        title: wx.$userInfo.skipAD ? '没关系，下次一定' : '页面广告已开启，礼记因你更美好！',
-        icon: 'none',
-        duration: 3000
-      })
-    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    await wx.$api.ok()
-    this.setData({
-      skipAD: wx.$userInfo.skipAD
-    })
-  },
+  async onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

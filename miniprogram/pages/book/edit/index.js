@@ -1,6 +1,5 @@
 // pages/book/edit/index.js
 const bookService = require("@/services/book");
-const app = getApp();
 
 import solarLunar from "@/components/calendar/plugins/solarLunar/index";
 import holidays from "@/components/calendar/plugins/holidays/index";
@@ -12,7 +11,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skipAD: true,
     book: {
       id: "",
       date: {},
@@ -142,10 +140,6 @@ Page({
   async onLoad(options) {
     this.setData({
       'book.id': options.id,
-    })
-    await wx.$api.ok()
-    this.setData({
-      skipAD: wx.$userInfo.skipAD,
     })
   },
   /**

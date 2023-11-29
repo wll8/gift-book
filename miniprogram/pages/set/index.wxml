@@ -6,13 +6,5 @@
 
         <ui-title title="界面" depth="2" isIcon />
         <ui-text-size ui="radius-lg" />
-
-        <ui-menu ui="radius-lg mt-4">
-            <ui-menu-item title="关闭广告" isAction>
-                <view slot="action">
-                    <ui-switch bg="bg-red" checked="{{skipAD}}" bind:change="tapSetAdChange"/>
-                </view>
-            </ui-menu-item>
-        </ui-menu>
     </view>
 </ui-sys>
