@@ -2,7 +2,7 @@
 <wxs module="tools" src="../../../utils/tools.wxs"></wxs>
 <ui-sys title="礼簿详情">
 	<ui-fixed sticky bg="bg-blur" ui="shadow-sm">
-		<ui-search-bar isRight bg="ui-BG-2" barBg="bg-blur" placeholder="请输入搜索关键词" bind:confirm="onSearch">
+		<ui-search-bar isRight bg="ui-BG-2" barBg="bg-blur" placeholder="请输入搜索关键词" bind:confirm="onSearch" bind:input="searchChange">
 			<text bind:tap="onAddGift" class="round _icon-add-round-o text-{{tools.bookColor(book.title)}}" style="font-size: 56rpx;"></text>
 		</ui-search-bar>
 		<view class="ui-container">
@@ -33,7 +33,7 @@
 	
 	<view class="ui-container">
 		<view wx:for="{{giftList}}" wx:key="index" bindtap="onGiftClick" data-gift='{{item}}'>
-			<view class="ui-BG radius-lg flex justify-around align-center py-4 my-3 text-{{tools.bookColor(book.title)}}">
+			<view class="pl-5 pr-5 ui-BG radius-lg flex justify-between align-center py-4 my-3 text-{{tools.bookColor(book.title)}}">
 				<view class="text-left">
 					<text class="text-xl">{{item.friendName}}</text>
 					<view class="text-sm mt-2">{{item.remarks}}</view>
@@ -41,7 +41,7 @@
 
 				<view class="text-right">
 					<view class="text-xxl"> {{item.money}} </view>
-					<view class="text-sm mt-2">礼金</view>
+					<view class="text-sm mt-2">{{item.goods}}</view>
 				</view>
 			</view>
 		</view>

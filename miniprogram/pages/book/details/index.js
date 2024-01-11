@@ -19,11 +19,15 @@ Page({
     }
     const [, res] = await giftReceiveService.getGiftReceivePage({
       bookId: this.data.book.id,
-      friendName_like: searchVal,
+      _like_key: [`friendName`, `goods`, `money`, `remarks`].join(`,`),
+      _like_value: searchVal,
     });
     this.setData({
       giftList: res.results,
     });
+  },
+  searchChange(e) {
+    this.onSearch(e)
   },
   onAddGift() {
     wx.navigateTo({
