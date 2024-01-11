@@ -79,16 +79,16 @@ Page({
     });
   },
   // 选择头像
-  onChooseAvatar(e) {
+  async onChooseAvatar(e) {
     const {
       avatarUrl
     } = e.detail;
     const options = {
       filePath: avatarUrl,
     };
-    wx.$api.get(`/todo/uploadFile`, options)
+    const [, res] = await wx.$api.upload( `${wx.$config.baseURL}file/upload`, { file: avatarUrl })
     this.setData({
-      avatarUrl_edit: `res.fileUrl`,
+      avatarUrl_edit: res.url,
     });
   },
   onShowPopup() {
@@ -125,7 +125,7 @@ Page({
     const avatarUrl = this.data.avatarUrl_edit;
     const nickName = this.data.nickName_edit;
 
-    const [err, res] = await userService.updateUserInfo({
+    const [err, res] = await userService.updateUserInfo(wx.$userInfo.id, {
       id: wx.$userInfo.id,
       nickName: nickName,
       avatarUrl: avatarUrl,

@@ -15,12 +15,8 @@ exports.getUserInfo = async (id) => {
  *
  * @author chadwuo
  */
-exports.updateUserInfo = async (parameter) => {
-  wx.$api.get(`/todo/updateUserInfo`, parameter)
-  return [undefined, {
-    success: true,
-    data: "",
-  }];
+exports.updateUserInfo = async (id, parameter) => {
+  return wx.$api.patch(`/users/${id}`, parameter)
 };
 
 /**

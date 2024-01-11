@@ -12,12 +12,14 @@ const Http = (config) => {
     `get`,
     `head`,
     `post`,
+    `patch`,
     `put`,
     `delete`,
     `trace`,
     `connect`,
+    `upload`,
   ].reduce((acc, method) => {
-    acc[method] = (url, data, options) => new Promise((resolve) => {
+    acc[method] = (url, data, options = {}) => new Promise((resolve) => {
       let fn = () => {}
       const obj = {
         method,
@@ -31,17 +33,28 @@ const Http = (config) => {
             instance.stack = (instance.stack || []).concat(fn)
             instance.login()
           } else {
-            resolve([undefined, res.data.data])
+            resolve([undefined, (
+              res.data = typeof(res.data) === `string` ? JSON.parse(res.data) : res.data,
+              res.data.data ? res.data.data : res.data
+            )])
           }
         },
         fail (err) {
           resolve([err])
         },
-        ...options,
+        ...( // 如果是 upload 时，则把 data 中的 tmp url 设置到 options.filePath 中
+          method === `upload` 
+            ? (options.formData = Object.entries(data).reduce((acc, [key, val]) => {
+              String(val).match(/\/\/tmp\//) ? (options.filePath = val, options.name = key) : acc[key] = val
+              return acc
+            }, {}), options) 
+            : options
+        ),
       }
       fn = () => {
         obj.header.token = wx.getStorageSync(`token`)
-        return wx.request(obj)
+        console.log(`obj`, obj)
+        return method === `upload` ? wx.uploadFile(obj) : wx.request(obj)
       }
       if(instance.stack && !obj.url.match(instance.api)) {
         instance.stack.push(fn)

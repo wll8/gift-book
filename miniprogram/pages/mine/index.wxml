@@ -68,10 +68,9 @@
 				<input  model:value="{{ nickName_edit }}" class="text-center mt-5 py-3 round ui-TC ui-BG-2"  placeholder="点击获取昵称" type="nickname" />
 				<button disabled="{{confirmLoading}}" class="ui-btn bg-red block round mt-5" bindtap="onSaveProfile">
 					保存
-					<ui-loading wx:if="{{confirmLoading}}" color />
 				</button>
 
-				<view class="mt-5">
+				<view class="mt-5 pb-5">
 					<button style="position: absolute;min-height: 1em;opacity: 0;z-index: 9;" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="handleAgree"></button>
 					<ui-checkbox value="{{!needAuthorization}}" class="text-sm mt-5">
 						我已阅读并同意<text class="text-red" bindtap="openPrivacyContract">{{privacyContractName}}</text>
